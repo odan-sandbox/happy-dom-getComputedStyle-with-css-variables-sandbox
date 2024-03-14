@@ -1,4 +1,7 @@
 {
   "name": "happy-dom-getcomputedstyle-with-css-variables-sandbox",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "happy-dom": "^13.8.4"
+  }
 }
