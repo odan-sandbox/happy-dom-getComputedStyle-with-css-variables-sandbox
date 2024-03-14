@@ -8,6 +8,8 @@ const style = window.document.createElement("style");
 
 style.textContent = `
   div {
+    border-color: var(--unknown, pink);
+
     color: var(--my-var, var(--my-background, pink));
 
     --color: blue;
@@ -18,8 +20,11 @@ style.textContent = `
 window.document.head.appendChild(style);
 window.document.body.appendChild(div);
 
-// expected: pink, actual: "" (empty string)
+// OK: expected: pink, actual: pink
+console.log(window.getComputedStyle(div).getPropertyValue("border-color"));
+
+// NG: expected: pink, actual: "" (empty string)
 console.log(window.getComputedStyle(div).getPropertyValue("color"));
 
-// expected: blue, actual: "" (empty string)
+// NG: expected: blue, actual: "" (empty string)
 console.log(window.getComputedStyle(div).getPropertyValue("background-color"));
